@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 
+
 using namespace std;
 
 string hello = "";
@@ -13,7 +14,15 @@ int hello_world()
 	cout << "Hello, world!" << endl;
 	while(true)
 	{
-		cin >> hello;
-		cout << "Hello, " << hello << "!"<< endl;
+		getline(cin, hello);
+		if(hello == "stop")
+		{
+			break;
+		}
+		else
+		{
+			cout << "Hello, " << hello << "!"<< endl;
+		}
 	}
+	return 0;
 }
