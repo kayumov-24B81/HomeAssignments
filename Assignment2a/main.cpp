@@ -6,17 +6,12 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include "binaryop.hpp"
 
 int main(void)
 {
-    std :: string path = "";
-    std :: cout << "Write down full path to the file" << std :: endl;
-    std :: cin >> path;
-    std :: fstream file(path);
-    int size = 0;
-    file.seekg (0, std::ios::end);
-    size = file.tellg();
-    std :: cout << "This file size is " << size << " bytes" << std :: endl;
-    file.close();
+    std :: string path = "source";
+    int size = getsize(path);
+    std :: cout << size << std :: endl;
     return 0;
 }
