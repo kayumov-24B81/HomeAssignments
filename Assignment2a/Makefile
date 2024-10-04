@@ -11,4 +11,4 @@ readfile.o: readfile.cpp binaryop.hpp
 	g++ -c readfile.cpp
 
 clean:
-	rm *.o bin_operator
+	rm *.o bin_operator tempbin

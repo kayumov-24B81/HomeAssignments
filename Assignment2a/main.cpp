@@ -12,6 +12,6 @@ int main(void)
 {
     std :: string path = "source";
     int size = getsize(path);
-    std :: cout << size << std :: endl;
+    readfile(size, path);
     return 0;
 }
