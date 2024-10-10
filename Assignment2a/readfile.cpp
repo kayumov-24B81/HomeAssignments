@@ -4,26 +4,32 @@
 
 int readfile(int size, std :: string path)
 {
-    char ftext[size];
+    char* ftext = new char[size];
     
     std :: ifstream fr;
     
     fr.open(path, std :: ios :: in | std :: ios :: binary);
     
-    fr.read((char*)&ftext, sizeof(ftext));
+    fr.read(ftext, size);
     fr.close();
     
     std :: ofstream fw;
     
+    char* rftext = new char[size];
+    
     for(int i = 0; i < size; ++i)
     {
-        ftext[i] = ftext[size - i];
+        rftext[i] = ftext[size - i];
     }
+    
+    delete [] ftext;
     
     fw.open("tempbin", std :: ios :: out | std :: ios :: binary);
     
-    fw.write((char*)&ftext, sizeof(ftext));
+    fw.write(rftext, size);
     fw.close();
+    
+    delete [] rftext;
     
     return 0;
 }
