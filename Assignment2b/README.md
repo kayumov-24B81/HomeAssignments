@@ -4,7 +4,7 @@
 ## Contacts
 st128100@student.spbu.ru
 ## Description
-Home assignment 2b - p_operator. This program reads RPN line and then writes answer. If amount of operators doesn't match amount of numbers it writes unused numbers first and then answer.
+Home assignment 2b - p_operator. This program reads RPN line and then writes answer. If amount of operators doesn't match amount of numbers, or division by zero could be made it returns error message.
 ## Build
 make
 ## Run

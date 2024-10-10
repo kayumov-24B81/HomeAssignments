@@ -1,128 +1,23 @@
+/* Kayumov Airat st128100@student.spbu.ru
+   p_operator
+   this is main file. it reads line with all characters, counts its length
+   and call function p_operator.
+*/
 #include <iostream>
 #include <string>
-#include <cmath>
+#include "p_operator.hpp"
+
 
 int main()
 {
-    std :: string input = "";
-    
+    std :: string input;
+
     std :: getline(std :: cin, input);
-    
     input += ' ';
     
     int len = input.length();
     
-    int c = 0;
-    int c2 = 0;
+    std :: cout << p_operator(input, len) << std :: endl;
     
-    float* p_stack = new float[c2];
-    
-    for(int i = 0; i < len; ++i)
-    {
-        if(not(input[i] == ' '))
-        {
-            ++c;
-        }
-        else
-        {
-            float numb = 0;
-            
-            switch (input[i - 1])
-            {
-               case '+':
-                    
-                    numb = p_stack[c2 - 2] + p_stack[c2 - 1];
-                    
-                    p_stack[c2 - 2] = numb;
-                    p_stack[c2 - 1] = 0;
-                    
-                    c2 += -1;
-                    
-                    break;
-                    
-                case '-':
-                    
-                    numb = p_stack[c2 - 2] - p_stack[c2 - 1];
-                    
-                    p_stack[c2 - 2] = numb;
-                    p_stack[c2 - 1] = 0;
-                    
-                    c2 += -1;
-            
-                    break;
-                
-                case '*':
-                
-                    numb = p_stack[c2 - 2] * p_stack[c2 - 1];
-                    
-                    p_stack[c2 - 2] = numb;
-                    p_stack[c2 - 1] = 0;
-                    
-                    c2 += -1;
-                    
-                    break;
-                    
-                    
-                case '/':
-                
-                    if(p_stack[c2 - 1] == 0)
-                    {
-                        std :: cout << "Error: division by zero" << std :: endl;
-                        std :: exit(0);
-                    }
-                    else
-                    {
-                        
-                        numb = p_stack[c2 - 2] / p_stack[c2 - 1];
-                    
-                        p_stack[c2 - 2] = numb;
-                        p_stack[c2 - 1] = 0;
-                    
-                        c2 += -1;
-                    }
-
-                    break;
-                
-                default:
-                        
-            	    int sp = i - c;
-            	    
-                    for(int i2 = 0; i2 < c; ++i2)
-                    {	
-                        numb += (input[sp + i2] - '0') * std :: pow(10, c - i2 -1);
-                    }
-                    
-                    p_stack[c2] = numb;
-
-                    c2 += 1;
-              }
-              float* temp = new float[c2];
-              
-              for(int i2 = 0; i2 < c2; ++i2)
-              {
-                  temp[i2] = p_stack[i2];
-              }
-              
-              delete [] p_stack;
-              float* p_stack = new float[c2];
-              
-              for(int i2 = 0; i2 < c2; ++i2)
-              {
-                  p_stack[i2] = temp[i2];
-              }
-              
-              delete [] temp;
-              
-              c = 0;
-          }
-    }
-    
-          
-    for(int i = 0; i < c2; ++i)
-    {
-        std :: cout << p_stack[i] << std :: endl;
-    }
-    
-    delete [] p_stack;
     return 0;
 }
