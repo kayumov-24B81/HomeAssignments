@@ -4,7 +4,6 @@
    and call function p_operator.
 */
 #include <iostream>
-#include <string>
 #include "p_operator.hpp"
 
 
