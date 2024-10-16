@@ -4,7 +4,7 @@
 ## Contacts
 st128100@student.spbu.ru
 ## Description
-Home assignment 2 - binary_opearator. This program reads file named "source" and makes another file "tempbin" with reversed content.
+Home assignment 2 - binary_operator. This program reads file named "source" and makes another file "tempbin" with reversed content. Make clean command cleans all working files and created temporary.
 ## Build
 make
 ## Run
