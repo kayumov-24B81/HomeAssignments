@@ -17,9 +17,9 @@ int readfile(int size, std :: string path)
     
     char* rftext = new char[size];
     
-    for(int i = 0; i < size; ++i)
+    for(int i = 1; i < size; ++i)
     {
-        rftext[i] = ftext[size - i];
+        rftext[i - 1] = ftext[size - i - 1];
     }
     
     delete [] ftext;
