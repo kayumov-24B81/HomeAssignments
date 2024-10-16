@@ -6,7 +6,6 @@
    Also this function can return error messages if error had accured.
 */
 #include <iostream>
-#include <string>
 #include <cmath>
 
 float p_operator(std :: string input, int len)
