@@ -28,8 +28,3 @@ unsigned Transformer :: get_ammo()
     return ammo;
 }
 
-
-int transformer()
-{
-    return 0;
-}

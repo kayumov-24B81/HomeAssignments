@@ -4,7 +4,7 @@
 ## Contacts
 st128100@student.spbu.ru
 ## Description
-Home Assignment 3 - transformers. For now this is just a .cpp and .hpp file containing Transformer class. When ran it writes value of 1 field of this class.
+Home Assignment 3 - transformers. Program now consist of two classes. For now main function only writes one field value of each class.
 ## Build
 make
 ## Run
