@@ -1,5 +1,5 @@
 #include <iostream>
-#include "main.hpp"
+#include "transformer.hpp"
 
 int main()
 {
@@ -9,11 +9,3 @@ int main()
     
     return 0;
 }
-
-
-
-
-
-
-
-
