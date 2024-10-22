@@ -4,7 +4,7 @@
 ## Contacts
 st128100@student.spbu.ru
 ## Description
-Home Assignment 3 - transformers. Program now consist of two classes. Main function writes all stats of created transformer.
+Home Assignment 3 - transformers. Program now consist of three classes. Main function writes all stats of created transformer.
 ## Build
 make
 ## Run

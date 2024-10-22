@@ -3,8 +3,9 @@
 
 int main()
 {
+    Gun pistol(5);
     
-    Transformer goidabot;
+    Transformer goidabot(pistol, 1.2);
     
     goidabot.get_stats();
     

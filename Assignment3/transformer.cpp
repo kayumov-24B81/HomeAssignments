@@ -1,10 +1,12 @@
 #include "transformer.hpp"
 #include "iostream"
 
-Transformer :: Transformer(Gun g)
+Transformer :: Transformer(Gun g, float toughness)
 {
+    Armor arm(toughness);
+    armor = arm;
     gun = g;
-    hp = 100;
+    hp = 100 * armor.get_toughness();
     lvl = 0;
     fuel = 100;
     ammo = 20;
@@ -12,17 +14,22 @@ Transformer :: Transformer(Gun g)
 
 Transformer :: Transformer()
 {
+    Armor arm;
     Gun g;
+    armor = arm;
     gun = g;
-    hp = 100;
+    hp = 100 * armor.get_toughness();
     lvl = 0;
     fuel = 100;
     ammo = 20;
 }
 
-Transformer :: ~Transformer();
+Transformer :: ~Transformer()
+{
+    std :: cout << "Transformer object destructor executed succesfully" << std :: endl;
+}
 
-unsigned Transformer :: get_hp()
+float Transformer :: get_hp()
 {
     return hp;
 }

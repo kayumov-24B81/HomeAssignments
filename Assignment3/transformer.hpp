@@ -3,10 +3,12 @@
 #define TRANSFORMERS
 
 #include "gun.hpp"
+#include "armor.hpp"
 
 class Transformer
 {
 private:
+    Armor armor;
     Gun gun;
     unsigned hp;
     unsigned lvl;
@@ -14,10 +16,10 @@ private:
     unsigned ammo;
     
 public:
-    Transformer(Gun g);
+    Transformer(Gun g, float toughness);
     Transformer();
     ~Transformer();
-    unsigned get_hp();
+    float get_hp();
     unsigned get_lvl();
     unsigned get_fuel();
     unsigned get_ammo();
