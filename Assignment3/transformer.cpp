@@ -64,6 +64,11 @@ void Transformer :: set_damage(unsigned dmg)
     gun.set_damage(dmg);
 }
 
+void Transformer :: set_fuel(unsigned fl)
+{
+    fuel = fl;
+}
+
 void Transformer :: lvl_up()
 {
     ++lvl;

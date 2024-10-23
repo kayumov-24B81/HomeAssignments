@@ -22,8 +22,10 @@ bool Decepticon :: upgrade()
     {
         set_damage(get_damage() + 10);
         set_hp(get_hp() - 20);
+        is_upgraded = true;
+        return true;
     }
     
-    return true;
+    return false;
 }
 

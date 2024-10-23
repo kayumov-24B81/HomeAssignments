@@ -16,4 +16,4 @@ public:
     bool upgrade();
 };
 
-#endif DECEPTICON
+#endif

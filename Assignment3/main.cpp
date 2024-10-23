@@ -1,21 +1,22 @@
 #include <iostream>
 #include "decepticon.hpp"
+#include "autobot.hpp"
 
 int main()
 {
     Gun pistol(5);
     
-    Decepticon goidabot(pistol, 1.2);
+    Autobot goidabot(pistol, 1.2);
     
     goidabot.get_stats();
     
-    if(goidabot.upgrade())
+    if(goidabot.repair())
     {
-         std :: cout << "Upgraded succesfully" << std :: endl;
+         std :: cout << "Repaired succesfully" << std :: endl;
     }
     else
     {
-         std :: cout << "This decepticon was already upgraded" << std :: endl;
+         std :: cout << "This aoutobot was already repaired" << std :: endl;
     }
     
     goidabot.get_stats();
