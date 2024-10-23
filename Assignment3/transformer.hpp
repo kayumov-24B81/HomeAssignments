@@ -24,6 +24,8 @@ public:
     unsigned get_fuel();
     unsigned get_ammo();
     unsigned get_damage();
+    void set_damage(unsigned dmg);
+    void set_hp(float health);
     void lvl_up(unsigned lvl_plus);
     void lvl_up();
     bool fire();

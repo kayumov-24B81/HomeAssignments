@@ -21,4 +21,9 @@ unsigned Gun :: get_damage()
     return damage;
 }
 
+void Gun :: set_damage(unsigned dmg)
+{
+    damage = dmg;
+    std :: cout << "Damage changed succesfully to " << damage << std :: endl;
+}
 

@@ -11,6 +11,7 @@ public:
     Gun();
     ~Gun();
     unsigned get_damage();
+    void set_damage(unsigned dmg);
 };
 
 #endif

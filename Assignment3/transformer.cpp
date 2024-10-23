@@ -54,6 +54,16 @@ unsigned Transformer :: get_damage()
     return gun.get_damage();
 }
 
+void Transformer :: set_hp(float health)
+{
+    hp = health;
+}
+
+void Transformer :: set_damage(unsigned dmg)
+{
+    gun.set_damage(dmg);
+}
+
 void Transformer :: lvl_up()
 {
     ++lvl;
