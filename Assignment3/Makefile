@@ -1,5 +1,5 @@
-transformers: main.o transformer.o gun.o armor.o decepticon.o autobot.o
-	g++ main.o transformer.o gun.o armor.o decepticon.o autobot.o -o transformers
+transformers: main.o transformer.o gun.o armor.o decepticon.o autobot.o minicon.o
+	g++ main.o transformer.o gun.o armor.o decepticon.o autobot.o minicon.o -o transformers
 
 main.o: main.cpp
 	g++ -c main.cpp
@@ -19,5 +19,14 @@ decepticon.o: decepticon.cpp decepticon.hpp
 autobot.o: autobot.cpp autobot.hpp
 	g++ -c autobot.cpp
 
+minicon.o: minicon.cpp minicon.hpp
+	g++ -c minicon.cpp
+
+test: test-transformer.cpp transformer.cpp gun.cpp armor.cpp decepticon.cpp autobot.cpp minicon.cpp
+	g++ -Wall -g -pthread test-transformer.cpp transformer.cpp gun.cpp armor.cpp decepticon.cpp autobot.cpp minicon.cpp -lgtest_main -lgtest -lpthread
+
 clean:
 	rm *.o transformers
+	
+clean_test:
+	rm a.out

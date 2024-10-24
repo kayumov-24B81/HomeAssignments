@@ -1,4 +1,6 @@
-
+/* Kayumov Airat st128100@student.spbu.ru
+   transformers. .hpp file or Transformer class. Contains declaration of all Transformer class methods and fields. Transformer is parent class for Decepticon Minicon and Autobot classes. Constructors for child functions use Transfromer constructor and just adjust their own fields. All necessary private information is changed through corresponding set functions.
+*/
 #ifndef TRANSFORMERS
 #define TRANSFORMERS
 

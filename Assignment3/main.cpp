@@ -1,25 +1,12 @@
-#include <iostream>
+/* Kayumov Airat st128100@student.spbu.ru
+   transformers. main.cpp file. 
+*/
+
 #include "decepticon.hpp"
 #include "autobot.hpp"
+#include "minicon.hpp"
 
 int main()
 {
-    Gun pistol(5);
-    
-    Autobot goidabot(pistol, 1.2);
-    
-    goidabot.get_stats();
-    
-    if(goidabot.repair())
-    {
-         std :: cout << "Repaired succesfully" << std :: endl;
-    }
-    else
-    {
-         std :: cout << "This aoutobot was already repaired" << std :: endl;
-    }
-    
-    goidabot.get_stats();
-    
     return 0;
 }

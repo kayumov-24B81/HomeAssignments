@@ -1,3 +1,6 @@
+/* Kayumov Airat st128100@student.spbu.ru
+   transformers. .cpp file or Gun class. Contains definition of all Gun class methods.
+*/
 #include "gun.hpp"
 #include <iostream>
 

@@ -1,3 +1,6 @@
+/* Kayumov Airat st128100@student.spbu.ru
+   transformers. .cpp file or Armor class. Contains definition of all Armor class methods.
+*/
 #include "armor.hpp"
 #include <iostream>
 

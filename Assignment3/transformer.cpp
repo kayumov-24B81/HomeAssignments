@@ -1,3 +1,6 @@
+/* Kayumov Airat st128100@student.spbu.ru
+   transformers. .cpp file or Transformer class. Contains definition of all Transformer class methods.
+*/
 #include "transformer.hpp"
 #include "iostream"
 
@@ -71,7 +74,7 @@ void Transformer :: set_fuel(unsigned fl)
 
 void Transformer :: lvl_up()
 {
-    ++lvl;
+    lvl = lvl + 1;
 }
 
 void Transformer :: lvl_up(unsigned lvl_plus)
