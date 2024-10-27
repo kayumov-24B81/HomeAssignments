@@ -6,10 +6,10 @@ st128100@student.spbu.ru
 ## Description
 Home Assignment 3 - transformers. Main function now does nothing. Test function now test all methods of all classes, present in this program.
 ## Build
-make - for main function (doesn't do anything)
-make test - for test function
-make clean - clear main function files
-make clean_test - clear test function files
+make test - to build test program
+make all - to build main program
 ## Run
-./transformers - main program (doesn't do anything)
-./a.out - test program
+./transformer - run main program
+./test-transformer - run test program
+make clean - clear created object files
+make cleanall - clear all created files

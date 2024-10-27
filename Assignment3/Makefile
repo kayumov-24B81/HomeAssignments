@@ -1,32 +1,53 @@
-transformers: main.o transformer.o gun.o armor.o decepticon.o autobot.o minicon.o
-	g++ main.o transformer.o gun.o armor.o decepticon.o autobot.o minicon.o -o transformers
+PROJECT = transformer
 
-main.o: main.cpp
-	g++ -c main.cpp
+TESTPROJECT = test-$(PROJECT)
 
-transformer.o: transformer.cpp transformer.hpp
-	g++ -c transformer.cpp
+LIBPROJECT = $(PROJECT).a
+
+OBJECTS = transformer.o gun.o armor.o decepticon.o autobot.o minicon.o
+
+TEST-OBJECTS = test-transformer.o
+
+DEPS = (wildcard *.h)
+
+A = ar
+
+AFLAGS = rsv
+
+CXX = g++
+
+CCXFLAGS = -I. -std=c++17 -Wall -g -fPIC
+
+LDXXFLAGS = $(CCXFLAGS) -L. -l:$(LIBPROJECT)
+
+LDGTESTFLAGS = $(LDXXFLAGS) -lgtest_main -lgtest -lpthread
+
+.PHONY: default
+
+default: all;
+
+%.o: %.cpp $(DEPS)
+	$(CXX) -c -o $@ $< $(CXXFLAGS)
 	
-gun.o: gun.cpp gun.hpp
-	g++ -c gun.cpp
+$(LIBPROJECT): $(OBJECTS)
+	$(A) $(AFLAGS) $@ $^
 
-armor.o: armor.cpp armor.hpp
-	g++ -c armor.cpp
+$(PROJECT): main.o $(LIBPROJECT)
+	$(CXX) -o $@ main.o $(LDXXFLAGS)
 
-decepticon.o: decepticon.cpp decepticon.hpp
-	g++ -c decepticon.cpp
+$(TESTPROJECT): $(LIBPROJECT) $(TEST-OBJECTS) 
+	$(CXX) -o $@ $(TEST-OBJECTS) $(LDGTESTFLAGS)
 	
-autobot.o: autobot.cpp autobot.hpp
-	g++ -c autobot.cpp
+test: $(TESTPROJECT)
 
-minicon.o: minicon.cpp minicon.hpp
-	g++ -c minicon.cpp
+all: $(PROJECT)
 
-test: test-transformer.cpp transformer.cpp gun.cpp armor.cpp decepticon.cpp autobot.cpp minicon.cpp
-	g++ -Wall -g -pthread test-transformer.cpp transformer.cpp gun.cpp armor.cpp decepticon.cpp autobot.cpp minicon.cpp -lgtest_main -lgtest -lpthread
+.PHONY: clean
 
 clean:
-	rm *.o transformers
-	
-clean_test:
-	rm a.out
+	rm -f *.o
+
+cleanall: clean
+	rm -f $(PROJECT)
+	rm -f $(LIBPROJECT)
+	rm -f $(TESTPROJECT)
