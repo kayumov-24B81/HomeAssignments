@@ -6,6 +6,7 @@
 
 #include "gun.hpp"
 #include "armor.hpp"
+#include <iostream>
 
 class Transformer
 {
@@ -33,7 +34,6 @@ public:
     void lvl_up();
     bool fire();
     void reload();
-    void get_stats();
 };
 
 #endif
