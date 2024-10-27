@@ -2,6 +2,7 @@
    transformers. .cpp file or Transformer class. Contains definition of all Transformer class methods.
 */
 #include "transformer.hpp"
+#include <iostream>
 
 Transformer :: Transformer(Gun g, float toughness)
 {

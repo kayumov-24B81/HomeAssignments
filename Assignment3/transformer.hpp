@@ -6,7 +6,6 @@
 
 #include "gun.hpp"
 #include "armor.hpp"
-#include <iostream>
 
 class Transformer
 {
