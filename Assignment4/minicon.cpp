@@ -66,13 +66,13 @@ std :: ostream & operator<<(std :: ostream & os, const Minicon & transformer)
 {
     std :: string can_dual_wield = "yes";
     std :: string current_mode = "battle mode";
-    
+
     if(not(transformer.get_battle_mode()))
     {
         current_mode = "peaceful mode";
         can_dual_wield = "no";
     }
 
-    
+
     return os << "model: minicon" << std :: endl << "current hp: " << transformer.get_hp() << std :: endl <<  "current lvl: " << transformer.get_lvl() << std :: endl << "current fuel: " << transformer.get_fuel() << std :: endl << "current ammo: " << transformer.get_ammo() << std :: endl << "current damage: " << transformer.get_damage() << std :: endl << "can wield two meele weapons: " << can_dual_wield << std :: endl << "current mode: " << current_mode;
 }

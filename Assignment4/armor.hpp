@@ -12,7 +12,7 @@ private:
 public:
     Armor(float toughness, bool fire_resistance);
     Armor();
-    ~Armor(); 
+    ~Armor();
     float get_toughness() const;
     bool get_fire_resistance() const;
 };

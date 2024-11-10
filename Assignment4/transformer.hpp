@@ -16,7 +16,7 @@ private:
     unsigned _lvl;
     unsigned _fuel;
     unsigned _ammo;
-    
+
 public:
     Transformer(Gun g, float toughness, bool fire_resistance);
     Transformer();
@@ -37,5 +37,8 @@ public:
 };
 
 std :: ostream & operator<<(std :: ostream & os, const Transformer & transformer);
+
+bool operator>(Transformer & transformer1, Transformer & transformer2);
+bool operator<(Transformer & transformer1, Transformer & transformer2);
 
 #endif
