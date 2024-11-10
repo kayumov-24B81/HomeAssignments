@@ -10,15 +10,15 @@
 class Transformer
 {
 private:
-    Armor armor;
-    Gun gun;
-    unsigned hp;
-    unsigned lvl;
-    unsigned fuel;
-    unsigned ammo;
+    Armor _armor;
+    Gun _gun;
+    unsigned _hp;
+    unsigned _lvl;
+    unsigned _fuel;
+    unsigned _ammo;
     
 public:
-    Transformer(Gun g, float toughness);
+    Transformer(Gun g, float toughness, bool fire_resistance);
     Transformer();
     ~Transformer();
     float get_hp() const;
@@ -26,10 +26,11 @@ public:
     unsigned get_fuel() const;
     unsigned get_ammo() const;
     unsigned get_damage() const;
-    void set_damage(unsigned dmg);
-    void set_hp(float health);
-    void set_fuel(unsigned fl);
-    void lvl_up(unsigned lvl_plus);
+    bool get_fire_resistance() const;
+    void set_damage(unsigned damage);
+    void set_hp(float hp);
+    void set_fuel(unsigned fuel);
+    void lvl_up(unsigned lvl);
     void lvl_up();
     bool fire();
     void reload();

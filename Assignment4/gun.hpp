@@ -9,16 +9,16 @@
 class Gun
 {
 private:
-    unsigned damage;
+    unsigned _damage;
 
 public:
-    Gun(unsigned dmg);
+    Gun(unsigned damage);
     Gun();
     ~Gun();
     unsigned get_damage() const;
-    void set_damage(unsigned dmg);
+    void set_damage(unsigned damage);
 };
 
-std :: ostream & operator<<(std :: ostream & os, const Gun & weapon);
+std :: ostream & operator<<(std :: ostream & os, const Gun & gun);
 
 #endif

@@ -9,16 +9,16 @@
 class Minicon : public Transformer
 {
 private:
-    bool can_fly;
-    bool battle_mode;
+    bool _can_dual_wield;
+    bool _battle_mode;
 public:
-    Minicon(Gun g, float toughness);
+    Minicon(Gun g, float toughness, bool fire_resistance);
     Minicon();
     ~Minicon();
-    bool get_can_fly() const;
+    bool get_can_dual_wield() const;
     bool get_battle_mode() const;
-    void set_can_fly(bool fly);
-    void set_battle_mode(bool mode);
+    void set_can_dual_wield(bool can_dual_wield);
+    void set_battle_mode(bool battle_mode);
     void change_mode();
 };
 

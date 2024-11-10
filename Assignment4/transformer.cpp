@@ -3,27 +3,27 @@
 */
 #include "transformer.hpp"
 
-Transformer :: Transformer(Gun g, float toughness)
+Transformer :: Transformer(Gun gun, float toughness, bool fire_resistance)
 {
-    gun = g;
-    Armor arm(toughness);
-    armor = arm;
-    hp = 100 * armor.get_toughness();
-    lvl = 0;
-    fuel = 100;
-    ammo = 20;
+    _gun = gun;
+    Armor armor(toughness, fire_resistance);
+    _armor = armor;
+    _hp = 100 * armor.get_toughness();
+    _lvl = 0;
+    _fuel = 100;
+    _ammo = 20;
 }
 
 Transformer :: Transformer()
 {
-    Gun g;
-    Armor arm;
-    gun = g;
-    armor = arm;
-    hp = 100 * armor.get_toughness();
-    lvl = 0;
-    fuel = 100;
-    ammo = 20;
+    Gun gun;
+    Armor armor;
+    _gun = gun;
+    _armor = armor;
+    _hp = 100 * armor.get_toughness();
+    _lvl = 0;
+    _fuel = 100;
+    _ammo = 20;
 }
 
 Transformer :: ~Transformer()
@@ -33,59 +33,65 @@ Transformer :: ~Transformer()
 
 float Transformer :: get_hp() const
 {
-    return hp;
+    return _hp;
 }
 
 unsigned Transformer :: get_lvl() const
 {
-    return lvl;
+    return _lvl;
 }
 
 unsigned Transformer :: get_fuel() const
 {
-    return fuel;
+    return _fuel;
 }
 
 unsigned Transformer :: get_ammo() const
 {
-    return ammo;
+    return _ammo;
 }
 
 unsigned Transformer :: get_damage() const
 {
-    return gun.get_damage();
+    return _gun.get_damage();
 }
 
-void Transformer :: set_hp(float health)
+bool Transformer :: get_fire_resistance() const
 {
-    hp = health;
+    return _armor.get_fire_resistance();
 }
 
-void Transformer :: set_damage(unsigned dmg)
+
+void Transformer :: set_hp(float hp)
 {
-    gun.set_damage(dmg);
+    _hp = hp;
 }
 
-void Transformer :: set_fuel(unsigned fl)
+void Transformer :: set_damage(unsigned damage)
 {
-    fuel = fl;
+    _gun.set_damage(damage);
+}
+
+void Transformer :: set_fuel(unsigned fuel)
+{
+    _fuel = fuel;
 }
 
 void Transformer :: lvl_up()
 {
-    lvl = lvl + 1;
+    _lvl += 1;
 }
 
-void Transformer :: lvl_up(unsigned lvl_plus)
+void Transformer :: lvl_up(unsigned lvl)
 {
-    lvl += lvl_plus;
+    _lvl += lvl;
 }
 
 bool Transformer :: fire()
 {
-    if(ammo != 0)
+    if(_ammo != 0)
     {
-        --ammo;
+        --_ammo;
         return true;
     }
     else
@@ -96,7 +102,7 @@ bool Transformer :: fire()
 
 void Transformer :: reload()
 {
-    ammo = 20;
+    _ammo = 20;
 }
 
 std :: ostream & operator<<(std :: ostream & os, const Transformer &transformer)

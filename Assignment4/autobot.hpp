@@ -9,13 +9,13 @@
 class Autobot : public Transformer
 {
 private:
-    bool can_fly;
-    bool is_repaired;
+    bool _is_teleport_ready;
+    bool _is_repaired;
 public:
-    Autobot(Gun g, float toughness);
+    Autobot(Gun g, float toughness, bool fire_resistance);
     Autobot();
     ~Autobot();
-    bool get_can_fly() const;
+    bool get_is_teleport_ready() const;
     bool get_is_repaired() const;
     void set_repaired(bool repaired_stat);
     bool repair();

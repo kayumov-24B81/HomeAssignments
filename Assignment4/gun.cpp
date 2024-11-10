@@ -4,14 +4,14 @@
 #include "gun.hpp"
 #include <iostream>
 
-Gun :: Gun(unsigned dmg)
+Gun :: Gun(unsigned damage)
 {
-    damage = dmg;
+    _damage = damage;
 }
 
 Gun :: Gun()
 {
-    damage = 10;
+    _damage = 10;
 }
 
 Gun :: ~Gun()
@@ -21,16 +21,15 @@ Gun :: ~Gun()
 
 unsigned Gun :: get_damage() const
 {
-    return damage;
+    return _damage;
 }
 
-void Gun :: set_damage(unsigned dmg)
+void Gun :: set_damage(unsigned damage)
 {
-    damage = dmg;
-    std :: cout << "Damage changed succesfully to " << damage << std :: endl;
+    _damage = damage;
 }
 
-std :: ostream & operator<<(std :: ostream & os, const Gun & weapon)
+std :: ostream & operator<<(std :: ostream & os, const Gun & gun)
 {
-    return os << "current damage: " << weapon.get_damage();
+    return os << "current damage: " << gun.get_damage();
 }

@@ -9,15 +9,16 @@
 class Decepticon : public Transformer
 {
 private:
-    bool can_fly;
-    bool is_upgraded;
+    bool _can_makedonian_shooting;
+    bool _is_upgraded;
 public:
-    Decepticon(Gun g, float toughness);
+    Decepticon(Gun g, float toughness, bool fire_resistance);
     Decepticon();
     ~Decepticon();
     bool get_is_upgraded() const;
-    bool get_can_fly() const;
-    void set_is_upgraded(bool upgrade_state);
+    bool get_can_makedonian_shooting() const;
+    void set_is_upgraded(bool is_upgraded);
+    void set_can_makedonian_shooting(bool can_makedonian_shooting);
     bool upgrade();
 };
 

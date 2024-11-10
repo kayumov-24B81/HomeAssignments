@@ -7,12 +7,14 @@
 class Armor
 {
 private:
-    float toughness;
+    float _toughness;
+    bool _fire_resistance;
 public:
-    Armor(float arm_tough);
+    Armor(float toughness, bool fire_resistance);
     Armor();
     ~Armor(); 
     float get_toughness() const;
+    bool get_fire_resistance() const;
 };
 
 #endif

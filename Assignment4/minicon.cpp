@@ -3,16 +3,16 @@
 */
 #include "minicon.hpp"
 
-Minicon :: Minicon(Gun g, float toughness) : Transformer(g, toughness)
+Minicon :: Minicon(Gun g, float toughness, bool fire_resistance) : Transformer(g, toughness, fire_resistance)
 {
-    can_fly = true;
-    battle_mode = true;
+    _can_dual_wield = true;
+    _battle_mode = true;
 }
 
 Minicon :: Minicon() : Transformer()
 {
-    can_fly = true;
-    battle_mode = true;
+    _can_dual_wield = true;
+    _battle_mode = true;
 }
 
 Minicon :: ~Minicon()
@@ -20,34 +20,34 @@ Minicon :: ~Minicon()
     std :: cout << "Minicon object destructor executed succesfully" << std :: endl;
 }
 
-bool Minicon :: get_can_fly() const
+bool Minicon :: get_can_dual_wield() const
 {
-    return can_fly;
+    return _can_dual_wield;
 }
 
 bool Minicon :: get_battle_mode() const
 {
-    return battle_mode;
+    return _battle_mode;
 }
 
-void Minicon :: set_can_fly(bool fly)
+void Minicon :: set_can_dual_wield(bool can_dual_wield)
 {
-    can_fly = fly;
+    _can_dual_wield = can_dual_wield;
 }
 
-void Minicon :: set_battle_mode(bool mode)
+void Minicon :: set_battle_mode(bool battle_mode)
 {
-    battle_mode = mode;
+    _battle_mode = battle_mode;
 }
 
 void Minicon :: change_mode()
 {
-    if(battle_mode)
+    if(_battle_mode)
     {
         set_damage(get_damage() - 5);
         set_fuel(get_fuel() + 30);
         set_hp(get_hp() - 20);
-        set_can_fly(false);
+        set_can_dual_wield(false);
         set_battle_mode(false);
         std :: cout << "Minicon quitted battle mode succesfully" << std :: endl;
     }
@@ -56,7 +56,7 @@ void Minicon :: change_mode()
         set_damage(get_damage() + 5);
         set_fuel(get_fuel() - 40);
         set_hp(get_hp() + 40);
-        set_can_fly(true);
+        set_can_dual_wield(true);
         set_battle_mode(true);
         std :: cout << "Minicon entered battle mode succesfully" << std :: endl;
     }
@@ -64,15 +64,15 @@ void Minicon :: change_mode()
 
 std :: ostream & operator<<(std :: ostream & os, const Minicon & transformer)
 {
-    std :: string is_flying = "yes";
+    std :: string can_dual_wield = "yes";
     std :: string current_mode = "battle mode";
     
     if(not(transformer.get_battle_mode()))
     {
         current_mode = "peaceful mode";
-        is_flying = "no";
+        can_dual_wield = "no";
     }
 
     
-    return os << "model: minicon" << std :: endl << "current hp: " << transformer.get_hp() << std :: endl <<  "current lvl: " << transformer.get_lvl() << std :: endl << "current fuel: " << transformer.get_fuel() << std :: endl << "current ammo: " << transformer.get_ammo() << std :: endl << "current damage: " << transformer.get_damage() << std :: endl << "can fly: " << is_flying << std :: endl << "current mode: " << current_mode;
+    return os << "model: minicon" << std :: endl << "current hp: " << transformer.get_hp() << std :: endl <<  "current lvl: " << transformer.get_lvl() << std :: endl << "current fuel: " << transformer.get_fuel() << std :: endl << "current ammo: " << transformer.get_ammo() << std :: endl << "current damage: " << transformer.get_damage() << std :: endl << "can wield two meele weapons: " << can_dual_wield << std :: endl << "current mode: " << current_mode;
 }

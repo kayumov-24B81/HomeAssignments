@@ -16,9 +16,10 @@ TEST(Transformertest, default_constructor)
 TEST(Transformertest, constructor)
 {
     Gun showel(15);
-    Transformer goidabot(showel, 1.2);
+    Transformer goidabot(showel, 1.2, true);
     EXPECT_EQ(goidabot.get_hp(), 120);
     EXPECT_EQ(goidabot.get_damage(), 15);
+    EXPECT_TRUE(goidabot.get_fire_resistance());
 }
 
 TEST(Transformertest, get_functions)
@@ -29,6 +30,7 @@ TEST(Transformertest, get_functions)
     EXPECT_EQ(goidabot.get_fuel(), 100);
     EXPECT_EQ(goidabot.get_ammo(), 20);
     EXPECT_EQ(goidabot.get_damage(), 10);
+    EXPECT_FALSE(goidabot.get_fire_resistance());
 }
 
 TEST(Transformertest, set_functions)
@@ -95,14 +97,15 @@ TEST(Armortest, default_constructor)
 
 TEST(Armortest, constructor)
 {
-    Armor steel_armor(2);
+    Armor steel_armor(2, true);
     EXPECT_EQ(steel_armor.get_toughness(), 2);
+    EXPECT_EQ(steel_armor.get_fire_resistance(), true);
 }
 
 TEST(Decepticontest, constructor)
 {
     Decepticon goidabot;
-    EXPECT_TRUE(goidabot.get_can_fly());
+    EXPECT_FALSE(goidabot.get_can_makedonian_shooting());
 }
 
 TEST(Decepticontest, get_function)
@@ -118,6 +121,7 @@ TEST(Decepticontest, upgrade_function)
     EXPECT_EQ(goidabot.get_damage(), 20);
     EXPECT_EQ(goidabot.get_hp(), 80);
     EXPECT_FALSE(goidabot.upgrade());
+    EXPECT_TRUE(goidabot.get_can_makedonian_shooting());
 }
 
 TEST(Decepticontest, overload)
@@ -129,13 +133,14 @@ TEST(Decepticontest, overload)
 TEST(Autobottest, constructor)
 {
     Autobot goidabot;
-    EXPECT_FALSE(goidabot.get_can_fly());
+    EXPECT_TRUE(goidabot.get_is_teleport_ready());
 }
 
 TEST(Autobottest, get_function)
 {
     Autobot goidabot;
     EXPECT_FALSE(goidabot.get_is_repaired());
+    EXPECT_TRUE(goidabot.get_is_teleport_ready());
 }
 
 TEST(Autobottest, set_function)
@@ -145,7 +150,7 @@ TEST(Autobottest, set_function)
     EXPECT_TRUE(goidabot.get_is_repaired());
 }
     
-TEST(Autobottest, upgrade_function)
+TEST(Autobottest, repair_function)
 {
     Autobot goidabot;
     EXPECT_TRUE(goidabot.repair());
@@ -163,13 +168,14 @@ TEST(Autobottest, overload)
 TEST(Minicontest, constructor)
 {
     Minicon goidabot;
-    EXPECT_TRUE(goidabot.get_can_fly());
+    EXPECT_TRUE(goidabot.get_can_dual_wield());
 }
 
 TEST(Minicontest, get_function)
 {
     Minicon goidabot;
     EXPECT_TRUE(goidabot.get_battle_mode());
+    EXPECT_TRUE(goidabot.get_can_dual_wield());
 }
 
 TEST(Minicontest, set_function)
@@ -177,8 +183,8 @@ TEST(Minicontest, set_function)
     Minicon goidabot;
     goidabot.set_battle_mode(false);
     EXPECT_FALSE(goidabot.get_battle_mode());
-    goidabot.set_can_fly(false);
-    EXPECT_FALSE(goidabot.get_can_fly());
+    goidabot.set_can_dual_wield(false);
+    EXPECT_FALSE(goidabot.get_can_dual_wield());
 }
 
 TEST(Minicontest, change_mode_function)
@@ -189,14 +195,14 @@ TEST(Minicontest, change_mode_function)
     EXPECT_EQ(goidabot.get_damage(), 5);
     EXPECT_EQ(goidabot.get_fuel(), 130);
     EXPECT_EQ(goidabot.get_hp(), 80);
-    EXPECT_FALSE(goidabot.get_can_fly());
+    EXPECT_FALSE(goidabot.get_can_dual_wield());
     EXPECT_FALSE(goidabot.get_battle_mode());
     goidabot.change_mode();
     EXPECT_TRUE(goidabot.get_battle_mode());
     EXPECT_EQ(goidabot.get_damage(), 10);
     EXPECT_EQ(goidabot.get_fuel(), 90);
     EXPECT_EQ(goidabot.get_hp(), 120);
-    EXPECT_TRUE(goidabot.get_can_fly());
+    EXPECT_TRUE(goidabot.get_can_dual_wield());
     EXPECT_TRUE(goidabot.get_battle_mode());
 }
 

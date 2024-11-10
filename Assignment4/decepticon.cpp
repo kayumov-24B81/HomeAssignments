@@ -3,16 +3,16 @@
 */
 #include "decepticon.hpp"
 
-Decepticon :: Decepticon(Gun g, float toughness) : Transformer(g, toughness)
+Decepticon :: Decepticon(Gun g, float toughness, bool fire_resistance) : Transformer(g, toughness, fire_resistance)
 {
-    can_fly = true;
-    is_upgraded = false;
+    _can_makedonian_shooting = false;
+    _is_upgraded = false;
 }
 
 Decepticon :: Decepticon() : Transformer()
 {
-    can_fly = true;
-    is_upgraded = false;
+    _can_makedonian_shooting = false;
+    _is_upgraded = false;
 }
 
 
@@ -23,26 +23,32 @@ Decepticon :: ~Decepticon()
 
 bool Decepticon :: get_is_upgraded() const
 {
-    return is_upgraded;
+    return _is_upgraded;
 }
 
-bool Decepticon :: get_can_fly() const
+bool Decepticon :: get_can_makedonian_shooting() const
 {
-    return can_fly;
+    return _can_makedonian_shooting;
 }
 
-void Decepticon :: set_is_upgraded(bool upgrade_state)
+void Decepticon :: set_is_upgraded(bool is_upgraded)
 {
-    is_upgraded =  upgrade_state;
+    _is_upgraded =  is_upgraded;
+}
+
+void Decepticon :: set_can_makedonian_shooting(bool can_makedonian_shooting)
+{
+    _can_makedonian_shooting =  can_makedonian_shooting;
 }
 
 bool Decepticon :: upgrade()
 {
-    if(not(is_upgraded))
+    if(not(_is_upgraded))
     {
         set_damage(get_damage() + 10);
         set_hp(get_hp() - 20);
         set_is_upgraded(true);
+        set_can_makedonian_shooting(true);
         return true;
     }
     
@@ -51,14 +57,14 @@ bool Decepticon :: upgrade()
 
 std :: ostream & operator<<(std :: ostream & os, const Decepticon & transformer)
 {
-    std :: string is_flying = "yes";
+    std :: string can_makedonian_shooting = "no";
     std :: string can_be_upgraded = "yes";
     
     if(transformer.get_is_upgraded())
     {
         can_be_upgraded = "no";
+        can_makedonian_shooting = "yes";
     }
-
     
-    return os << "model: decepticon" << std :: endl << "current hp: " << transformer.get_hp() << std :: endl <<  "current lvl: " << transformer.get_lvl() << std :: endl << "current fuel: " << transformer.get_fuel() << std :: endl << "current ammo: " << transformer.get_ammo() << std :: endl << "current damage: " << transformer.get_damage() << std :: endl << "can fly: " << is_flying << std :: endl << "can be upgraded: " << can_be_upgraded;
+    return os << "model: decepticon" << std :: endl << "current hp: " << transformer.get_hp() << std :: endl <<  "current lvl: " << transformer.get_lvl() << std :: endl << "current fuel: " << transformer.get_fuel() << std :: endl << "current ammo: " << transformer.get_ammo() << std :: endl << "current damage: " << transformer.get_damage() << std :: endl << "can shoot with two hands: " << can_makedonian_shooting << std :: endl << "can be upgraded: " << can_be_upgraded;
 }

@@ -4,14 +4,16 @@
 #include "armor.hpp"
 #include <iostream>
 
-Armor :: Armor(float arm_tough)
+Armor :: Armor(float toughness, bool fire_resistance)
 {
-    toughness = arm_tough;
+    _toughness = toughness;
+    _fire_resistance = fire_resistance;
 }
 
 Armor :: Armor()
 {
-    toughness = 1;
+    _toughness = 1;
+    _fire_resistance = false;
 }
 
 Armor :: ~Armor()
@@ -21,6 +23,11 @@ Armor :: ~Armor()
 
 float Armor :: get_toughness() const
 {
-    return toughness;
+    return _toughness;
+}
+
+bool Armor :: get_fire_resistance() const
+{
+    return _fire_resistance;
 }
 
