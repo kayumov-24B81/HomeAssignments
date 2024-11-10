@@ -40,34 +40,34 @@ void Autobot :: set_repaired(bool is_repaired)
 
 bool Autobot :: repair()
 {
-     if(not(_is_repaired))
-     {
-         set_hp(get_hp() + 20);
-         set_fuel(get_fuel() - 20);
-         set_repaired(true);
-         return true;
-     }
+    if(not(_is_repaired))
+    {
+        set_hp(get_hp() + 20);
+        set_fuel(get_fuel() - 20);
+        set_repaired(true);
+        return true;
+    }
 
-     return false;
+    return false;
 }
 
 std :: ostream & operator<<(std :: ostream & os, const Autobot & transformer)
 {
     std :: string is_teleport_ready = "no";
     std :: string can_be_repaired = "yes";
-    
+
     if(transformer.get_is_repaired())
     {
         can_be_repaired = "no";
     }
-    
-     if(transformer.get_is_teleport_ready())
+
+    if(transformer.get_is_teleport_ready())
     {
         is_teleport_ready = "yes";
     }
-    
-    return os << "model: autobot" << std :: endl << "current hp: " << transformer.get_hp() << std :: endl <<  "current lvl: " << transformer.get_lvl() << std :: endl << "current fuel: " << transformer.get_fuel() << std :: endl << "current ammo: " << transformer.get_ammo() << std :: endl << "current damage: " << transformer.get_damage() << std :: endl << "can teleport now: " << is_teleport_ready << std :: endl << "can be repaired: " << can_be_repaired;
-}    
 
-    
-    
+    return os << "model: autobot" << std :: endl << "current hp: " << transformer.get_hp() << std :: endl <<  "current lvl: " << transformer.get_lvl() << std :: endl << "current fuel: " << transformer.get_fuel() << std :: endl << "current ammo: " << transformer.get_ammo() << std :: endl << "current damage: " << transformer.get_damage() << std :: endl << "can teleport now: " << is_teleport_ready << std :: endl << "can be repaired: " << can_be_repaired;
+}
+
+
+

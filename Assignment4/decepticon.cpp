@@ -51,7 +51,7 @@ bool Decepticon :: upgrade()
         set_can_makedonian_shooting(true);
         return true;
     }
-    
+
     return false;
 }
 
@@ -59,12 +59,12 @@ std :: ostream & operator<<(std :: ostream & os, const Decepticon & transformer)
 {
     std :: string can_makedonian_shooting = "no";
     std :: string can_be_upgraded = "yes";
-    
+
     if(transformer.get_is_upgraded())
     {
         can_be_upgraded = "no";
         can_makedonian_shooting = "yes";
     }
-    
+
     return os << "model: decepticon" << std :: endl << "current hp: " << transformer.get_hp() << std :: endl <<  "current lvl: " << transformer.get_lvl() << std :: endl << "current fuel: " << transformer.get_fuel() << std :: endl << "current ammo: " << transformer.get_ammo() << std :: endl << "current damage: " << transformer.get_damage() << std :: endl << "can shoot with two hands: " << can_makedonian_shooting << std :: endl << "can be upgraded: " << can_be_upgraded;
 }

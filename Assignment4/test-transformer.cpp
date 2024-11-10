@@ -57,11 +57,22 @@ TEST(Transformertest, misc_functions)
     EXPECT_EQ(goidabot.get_ammo(), 20);
 }
 
-TEST(Transformertest, overload)
+TEST(Transformertest, cout_overload)
 {
     Transformer goidabot;
     std :: cout << goidabot << std :: endl;
 }
+
+TEST(Transformertest, comparision_overload)
+{
+    Gun gun(20);
+    Transformer goidabot(gun, 1.2, true);
+    Transformer zolobot(gun, 1.4, true);
+    EXPECT_TRUE(zolobot > goidabot);
+    EXPECT_TRUE(goidabot < zolobot);
+    EXPECT_FALSE(goidabot < goidabot);
+}
+
 
 TEST(Guntest, default_constructor)
 {
@@ -82,7 +93,7 @@ TEST(Guntest, set_function)
     EXPECT_EQ(showel.get_damage(), 13);
 }
 
-TEST(Guntest, overload)
+TEST(Guntest, cout_overload)
 {
     Gun showel(5);
     std :: cout << showel << std :: endl;
@@ -124,11 +135,22 @@ TEST(Decepticontest, upgrade_function)
     EXPECT_TRUE(goidabot.get_can_makedonian_shooting());
 }
 
-TEST(Decepticontest, overload)
+TEST(Decepticontest, cout_overload)
 {
     Decepticon goidabot;
     std :: cout << goidabot << std :: endl;
 }
+
+TEST(Decepticontest, comparision_overload)
+{
+    Gun gun(20);
+    Decepticon goidabot(gun, 1.2, true);
+    Decepticon zolobot(gun, 1.4, true);
+    EXPECT_TRUE(zolobot > goidabot);
+    EXPECT_TRUE(goidabot < zolobot);
+    EXPECT_FALSE(goidabot < goidabot);
+}
+
 
 TEST(Autobottest, constructor)
 {
@@ -149,7 +171,7 @@ TEST(Autobottest, set_function)
     goidabot.set_repaired(true);
     EXPECT_TRUE(goidabot.get_is_repaired());
 }
-    
+
 TEST(Autobottest, repair_function)
 {
     Autobot goidabot;
@@ -159,11 +181,22 @@ TEST(Autobottest, repair_function)
     EXPECT_FALSE(goidabot.repair());
 }
 
-TEST(Autobottest, overload)
+TEST(Autobottest, cout_overload)
 {
     Autobot goidabot;
     std :: cout << goidabot << std :: endl;
 }
+
+TEST(Autobottest, comparision_overload)
+{
+    Gun gun(20);
+    Autobot goidabot(gun, 1.2, true);
+    Autobot zolobot(gun, 1.4, true);
+    EXPECT_TRUE(zolobot > goidabot);
+    EXPECT_TRUE(goidabot < zolobot);
+    EXPECT_FALSE(goidabot < goidabot);
+}
+
 
 TEST(Minicontest, constructor)
 {
@@ -206,10 +239,40 @@ TEST(Minicontest, change_mode_function)
     EXPECT_TRUE(goidabot.get_battle_mode());
 }
 
-TEST(Minicontest, overload)
+TEST(Minicontest, cout_overload)
 {
     Minicon goidabot;
     std :: cout << goidabot << std :: endl;
+}
+
+TEST(Minicontest, comparision_overload)
+{
+    Gun gun(20);
+    Minicon goidabot(gun, 1.2, true);
+    Minicon zolobot(gun, 1.4, true);
+    EXPECT_TRUE(zolobot > goidabot);
+    EXPECT_TRUE(goidabot < zolobot);
+    EXPECT_FALSE(goidabot < goidabot);
+}
+
+TEST(Interclass, comparisison_overload_d_and_m)
+{
+    Gun gun(20);
+    Decepticon goidabot(gun, 1.2, true);
+    Minicon zolobot(gun, 1.4, true);
+    EXPECT_TRUE(zolobot > goidabot);
+    EXPECT_TRUE(goidabot < zolobot);
+    EXPECT_FALSE(goidabot < goidabot);
+}
+
+TEST(Interclass, comparisison_overload_t_and_a)
+{
+    Gun gun(20);
+    Transformer goidabot(gun, 1.2, true);
+    Autobot zolobot(gun, 1.4, true);
+    EXPECT_TRUE(zolobot > goidabot);
+    EXPECT_TRUE(goidabot < zolobot);
+    EXPECT_FALSE(goidabot < goidabot);
 }
 
 int main()

@@ -96,7 +96,7 @@ bool Transformer :: fire()
     }
     else
     {
-       return false;
+        return false;
     }
 }
 
@@ -109,4 +109,19 @@ std :: ostream & operator<<(std :: ostream & os, const Transformer &transformer)
 {
     return os << "model: transformer "<< std :: endl << "current hp: " << transformer.get_hp() << std :: endl <<  "current lvl: " << transformer.get_lvl() << std :: endl << "current fuel: " << transformer.get_fuel() << std :: endl << "current ammo: " << transformer.get_ammo() << std :: endl << "current damage: " << transformer.get_damage();
 }
+
+bool operator>(Transformer & transformer1, Transformer & transformer2)
+{
+    return ((transformer1.get_hp() / transformer2.get_damage()) > (transformer2.get_hp() / transformer1.get_damage()));
+}
+
+bool operator<(Transformer & transformer1, Transformer & transformer2)
+{
+    if((transformer1.get_hp() / transformer2.get_damage()) == (transformer2.get_hp() / transformer1.get_damage()))
+    {
+        return false;
+    }
+    return not(transformer1 > transformer2);
+}
+
 
