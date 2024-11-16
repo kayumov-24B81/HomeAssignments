@@ -12,4 +12,4 @@ make clean - clear main function files
 make clean_test - clear test function files
 ## Run
 ./transformers - main program (doesn't do anything)
-./a.out - test program
+./test-transformer - test program
