@@ -55,6 +55,24 @@ bool Decepticon :: upgrade()
     return false;
 }
 
+bool Decepticon :: transform()
+{
+    std :: cout << "trasform() called by Decepticon object" << std :: endl;
+    return true;
+}
+
+bool Decepticon :: self_destruction()
+{
+    std :: cout << "self_destruction() called by Decepticon object" << std :: endl;
+    return true;
+}
+
+bool Decepticon :: call_reinforcements()
+{
+    std :: cout << "call_reinforcements() called by Decepticon object" << std :: endl;
+    return true;
+}
+
 std :: ostream & operator<<(std :: ostream & os, const Decepticon & transformer)
 {
     std :: string can_makedonian_shooting = "no";

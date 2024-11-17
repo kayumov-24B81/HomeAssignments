@@ -20,6 +20,9 @@ public:
     void set_is_upgraded(bool is_upgraded);
     void set_can_makedonian_shooting(bool can_makedonian_shooting);
     bool upgrade();
+    bool transform();
+    bool self_destruction();
+    bool call_reinforcements();
 };
 
 std :: ostream & operator<<(std :: ostream & os, const Decepticon & transformer);

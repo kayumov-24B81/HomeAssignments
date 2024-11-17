@@ -72,6 +72,14 @@ TEST(Transformertest, comparision_overload)
     EXPECT_FALSE(goidabot < goidabot);
 }
 
+TEST(Transformertest, virtual_functions)
+{
+    Transformer goidabot;
+    EXPECT_TRUE(goidabot.transform());
+    EXPECT_TRUE(goidabot.self_destruction());
+    EXPECT_TRUE(goidabot.call_reinforcements());
+}
+
 
 TEST(Guntest, default_constructor)
 {
@@ -150,6 +158,13 @@ TEST(Decepticontest, comparision_overload)
     EXPECT_FALSE(goidabot < goidabot);
 }
 
+TEST(Decepticontest, virtual_functions)
+{
+    Decepticon goidabot;
+    EXPECT_TRUE(goidabot.transform());
+    EXPECT_TRUE(goidabot.self_destruction());
+    EXPECT_TRUE(goidabot.call_reinforcements());
+}
 
 TEST(Autobottest, constructor)
 {
@@ -196,7 +211,15 @@ TEST(Autobottest, comparision_overload)
     EXPECT_FALSE(goidabot < goidabot);
 }
 
-TEST(Interclass, comparisison_overload_d_and_m)
+TEST(Autobottest, virtual_functions)
+{
+    Autobot goidabot;
+    EXPECT_TRUE(goidabot.transform());
+    EXPECT_TRUE(goidabot.self_destruction());
+    EXPECT_TRUE(goidabot.call_reinforcements());
+}
+
+TEST(Interclass, comparisison_overload_d_and_t)
 {
     Gun gun(20);
     Decepticon goidabot(gun, 1.2, true);
