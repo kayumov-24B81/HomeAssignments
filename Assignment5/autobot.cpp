@@ -53,7 +53,7 @@ bool Autobot :: repair()
 
 bool Autobot :: transform()
 {
-    std :: cout << "trasform() called by Autobot object" << std :: endl;
+    std :: cout << "transform() called by Autobot object" << std :: endl;
     return true;
 }
 

@@ -57,7 +57,7 @@ bool Decepticon :: upgrade()
 
 bool Decepticon :: transform()
 {
-    std :: cout << "trasform() called by Decepticon object" << std :: endl;
+    std :: cout << "transform() called by Decepticon object" << std :: endl;
     return true;
 }
 

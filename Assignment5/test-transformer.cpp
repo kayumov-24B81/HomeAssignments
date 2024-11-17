@@ -80,6 +80,14 @@ TEST(Transformertest, virtual_functions)
     EXPECT_TRUE(goidabot.call_reinforcements());
 }
 
+TEST(Transformertest, virtual_functions_w_typed_ptr)
+{
+    Transformer goidabot;
+    Transformer* ptr = &goidabot;
+    EXPECT_TRUE(ptr->transform());
+    EXPECT_TRUE(ptr->self_destruction());
+    EXPECT_TRUE(ptr->call_reinforcements());
+}
 
 TEST(Guntest, default_constructor)
 {
@@ -166,6 +174,15 @@ TEST(Decepticontest, virtual_functions)
     EXPECT_TRUE(goidabot.call_reinforcements());
 }
 
+TEST(Decepticontest, virtual_functions_w_typed_ptr)
+{
+    Decepticon goidabot;
+    Transformer* ptr = &goidabot;
+    EXPECT_TRUE(ptr->transform());
+    EXPECT_TRUE(ptr->self_destruction());
+    EXPECT_TRUE(ptr->call_reinforcements());
+}
+
 TEST(Autobottest, constructor)
 {
     Autobot goidabot;
@@ -217,6 +234,15 @@ TEST(Autobottest, virtual_functions)
     EXPECT_TRUE(goidabot.transform());
     EXPECT_TRUE(goidabot.self_destruction());
     EXPECT_TRUE(goidabot.call_reinforcements());
+}
+
+TEST(Autobottest, virtual_functions_w_typed_ptr)
+{
+    Autobot goidabot;
+    Transformer* ptr = &goidabot;
+    EXPECT_TRUE(ptr->transform());
+    EXPECT_TRUE(ptr->self_destruction());
+    EXPECT_TRUE(ptr->call_reinforcements());
 }
 
 TEST(Interclass, comparisison_overload_d_and_t)

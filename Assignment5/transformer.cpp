@@ -107,7 +107,7 @@ void Transformer :: reload()
 
 bool Transformer :: transform()
 {
-    std :: cout << "trasform() called by Transformer object" << std :: endl;
+    std :: cout << "transform() called by Transformer object" << std :: endl;
     return true;
 }
 
