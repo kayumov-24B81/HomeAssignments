@@ -1,7 +1,8 @@
 /* Kayumov Airat st128100@student.spbu.ru
-   transformers. this file contains test for all classes. Some methods are already tested inside constructor test, so they don't have their own separate test. Each TEST group is suited for one class(transformertest for Transformer class etc.).
+   transformers. this file contains test for all classes. Some methods are already tested inside constructor test, so they don't have their own separate test. Each TEST group is suited for one class(transformertest for Transformer class etc.). Has one TEST group for tests that contain different class objects.
 */
 #include <gtest/gtest.h>
+#include <vector>
 #include "decepticon.hpp"
 #include "autobot.hpp"
 
@@ -264,6 +265,28 @@ TEST(Interclass, comparisison_overload_t_and_a)
     EXPECT_TRUE(goidabot < zolobot);
     EXPECT_FALSE(goidabot < goidabot);
 }
+
+TEST(Interclass, virtual_functions_w_typed_ptrs)
+{
+    std :: vector<Transformer*> squad;
+    for(int i = 0; i < 3; ++i)
+    {
+        squad.push_back(new Transformer());
+        squad.push_back(new Decepticon());
+        squad.push_back(new Autobot());
+    }
+    for(int i = 0; i < squad.size(); ++i)
+    {
+        EXPECT_TRUE(squad[i]->transform());
+        EXPECT_TRUE(squad[i]->self_destruction());
+        EXPECT_TRUE(squad[i]->call_reinforcements());
+    }
+    for(int i = 0; i < squad.size(); ++i)
+    {
+        delete squad[i];
+    }
+}
+
 
 int main()
 {

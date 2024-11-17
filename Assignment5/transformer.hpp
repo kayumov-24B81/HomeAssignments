@@ -37,7 +37,7 @@ public:
     virtual bool transform();
     virtual bool self_destruction();
     virtual bool call_reinforcements();
-    
+
 };
 
 std :: ostream & operator<<(std :: ostream & os, const Transformer & transformer);
