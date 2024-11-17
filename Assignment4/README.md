@@ -11,5 +11,5 @@ make test - for test function
 make clean - clear main function files
 make clean_test - clear test function files
 ## Run
-./transformers - main program (doesn't do anything)
+./transformer - main program (doesn't do anything)
 ./test-transformer - test program
