@@ -2,9 +2,9 @@
    transformers. this file contains test for all classes. Some methods are already tested inside constructor test, so they don't have their own separate test. Each TEST group is suited for one class(transformertest for Transformer class etc.). Has one TEST group for tests that contain different class objects.
 */
 #include <gtest/gtest.h>
+#include <vector>
 #include "decepticon.hpp"
 #include "autobot.hpp"
-#include "minicon.hpp"
 
 TEST(Transformertest, default_constructor)
 {
@@ -73,6 +73,22 @@ TEST(Transformertest, comparision_overload)
     EXPECT_FALSE(goidabot < goidabot);
 }
 
+TEST(Transformertest, virtual_functions)
+{
+    Transformer goidabot;
+    EXPECT_TRUE(goidabot.transform());
+    EXPECT_TRUE(goidabot.self_destruction());
+    EXPECT_TRUE(goidabot.call_reinforcements());
+}
+
+TEST(Transformertest, virtual_functions_w_typed_ptr)
+{
+    Transformer goidabot;
+    Transformer* ptr = &goidabot;
+    EXPECT_TRUE(ptr->transform());
+    EXPECT_TRUE(ptr->self_destruction());
+    EXPECT_TRUE(ptr->call_reinforcements());
+}
 
 TEST(Guntest, default_constructor)
 {
@@ -151,6 +167,22 @@ TEST(Decepticontest, comparision_overload)
     EXPECT_FALSE(goidabot < goidabot);
 }
 
+TEST(Decepticontest, virtual_functions)
+{
+    Decepticon goidabot;
+    EXPECT_TRUE(goidabot.transform());
+    EXPECT_TRUE(goidabot.self_destruction());
+    EXPECT_TRUE(goidabot.call_reinforcements());
+}
+
+TEST(Decepticontest, virtual_functions_w_typed_ptr)
+{
+    Decepticon goidabot;
+    Transformer* ptr = &goidabot;
+    EXPECT_TRUE(ptr->transform());
+    EXPECT_TRUE(ptr->self_destruction());
+    EXPECT_TRUE(ptr->call_reinforcements());
+}
 
 TEST(Autobottest, constructor)
 {
@@ -197,69 +229,28 @@ TEST(Autobottest, comparision_overload)
     EXPECT_FALSE(goidabot < goidabot);
 }
 
-
-TEST(Minicontest, constructor)
+TEST(Autobottest, virtual_functions)
 {
-    Minicon goidabot;
-    EXPECT_TRUE(goidabot.get_can_dual_wield());
+    Autobot goidabot;
+    EXPECT_TRUE(goidabot.transform());
+    EXPECT_TRUE(goidabot.self_destruction());
+    EXPECT_TRUE(goidabot.call_reinforcements());
 }
 
-TEST(Minicontest, get_function)
+TEST(Autobottest, virtual_functions_w_typed_ptr)
 {
-    Minicon goidabot;
-    EXPECT_TRUE(goidabot.get_battle_mode());
-    EXPECT_TRUE(goidabot.get_can_dual_wield());
+    Autobot goidabot;
+    Transformer* ptr = &goidabot;
+    EXPECT_TRUE(ptr->transform());
+    EXPECT_TRUE(ptr->self_destruction());
+    EXPECT_TRUE(ptr->call_reinforcements());
 }
 
-TEST(Minicontest, set_function)
-{
-    Minicon goidabot;
-    goidabot.set_battle_mode(false);
-    EXPECT_FALSE(goidabot.get_battle_mode());
-    goidabot.set_can_dual_wield(false);
-    EXPECT_FALSE(goidabot.get_can_dual_wield());
-}
-
-TEST(Minicontest, change_mode_function)
-{
-    Minicon goidabot;
-    goidabot.change_mode();
-    EXPECT_FALSE(goidabot.get_battle_mode());
-    EXPECT_EQ(goidabot.get_damage(), 5);
-    EXPECT_EQ(goidabot.get_fuel(), 130);
-    EXPECT_EQ(goidabot.get_hp(), 80);
-    EXPECT_FALSE(goidabot.get_can_dual_wield());
-    EXPECT_FALSE(goidabot.get_battle_mode());
-    goidabot.change_mode();
-    EXPECT_TRUE(goidabot.get_battle_mode());
-    EXPECT_EQ(goidabot.get_damage(), 10);
-    EXPECT_EQ(goidabot.get_fuel(), 90);
-    EXPECT_EQ(goidabot.get_hp(), 120);
-    EXPECT_TRUE(goidabot.get_can_dual_wield());
-    EXPECT_TRUE(goidabot.get_battle_mode());
-}
-
-TEST(Minicontest, cout_overload)
-{
-    Minicon goidabot;
-    std :: cout << goidabot << std :: endl;
-}
-
-TEST(Minicontest, comparision_overload)
-{
-    Gun gun(20);
-    Minicon goidabot(gun, 1.2, true);
-    Minicon zolobot(gun, 1.4, true);
-    EXPECT_TRUE(zolobot > goidabot);
-    EXPECT_TRUE(goidabot < zolobot);
-    EXPECT_FALSE(goidabot < goidabot);
-}
-
-TEST(Interclass, comparisison_overload_d_and_m)
+TEST(Interclass, comparisison_overload_d_and_t)
 {
     Gun gun(20);
     Decepticon goidabot(gun, 1.2, true);
-    Minicon zolobot(gun, 1.4, true);
+    Transformer zolobot(gun, 1.4, true);
     EXPECT_TRUE(zolobot > goidabot);
     EXPECT_TRUE(goidabot < zolobot);
     EXPECT_FALSE(goidabot < goidabot);
@@ -274,6 +265,28 @@ TEST(Interclass, comparisison_overload_t_and_a)
     EXPECT_TRUE(goidabot < zolobot);
     EXPECT_FALSE(goidabot < goidabot);
 }
+
+TEST(Interclass, virtual_functions_w_typed_ptrs)
+{
+    std :: vector<Transformer*> squad;
+    for(int i = 0; i < 3; ++i)
+    {
+        squad.push_back(new Transformer());
+        squad.push_back(new Decepticon());
+        squad.push_back(new Autobot());
+    }
+    for(int i = 0; i < squad.size(); ++i)
+    {
+        EXPECT_TRUE(squad[i]->transform());
+        EXPECT_TRUE(squad[i]->self_destruction());
+        EXPECT_TRUE(squad[i]->call_reinforcements());
+    }
+    for(int i = 0; i < squad.size(); ++i)
+    {
+        delete squad[i];
+    }
+}
+
 
 int main()
 {

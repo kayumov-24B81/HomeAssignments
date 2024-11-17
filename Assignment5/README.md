@@ -1,10 +1,10 @@
-# Assignment 4
+# Assignment 5
 ## Author
 Каюмов Айрат Хафизович, группа 24Б.81-мм
 ## Contacts
 st128100@student.spbu.ru
 ## Description
-Home Assignment 4 - transformers with overload. Main function now does nothing. Test function now tests all methods of all classes, present in this program. Added output overload for each class (except for Armor) and comparison operator overload for each class(except for Armor and Gun).
+Home Assignment 5 - transformers with virtual methods. Main function does nothing. Added 3 virtual methods. Added tests for these methods: 1 test for each class, 1 test with parent class typed pointers and 1 test with vector of parent class typed pointers.
 ## Build
 make - for main function (doesn't do anything)
 make test - for test function
