@@ -1,5 +1,5 @@
 /* Kayumov Airat st128100@student.spbu.ru
-   transformers. this file contains test for all classes. Some methods are already tested inside constructor test, so they don't have their own separate test. Each TEST group is suited for one class(transformertest for Transformer class etc.).
+   transformers. this file contains test for all classes. Some methods are already tested inside constructor test, so they don't have their own separate test. Each TEST group is suited for one class(transformertest for Transformer class etc.). Has one TEST group for tests that contain different class objects.
 */
 #include <gtest/gtest.h>
 #include "decepticon.hpp"
