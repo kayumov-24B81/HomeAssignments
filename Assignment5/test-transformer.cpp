@@ -269,19 +269,19 @@ TEST(Interclass, comparisison_overload_t_and_a)
 TEST(Interclass, virtual_functions_w_typed_ptrs)
 {
     std :: vector<Transformer*> squad;
-    for(int i = 0; i < 3; ++i)
+    for(unsigned i = 0; i < 3; ++i)
     {
         squad.push_back(new Transformer());
         squad.push_back(new Decepticon());
         squad.push_back(new Autobot());
     }
-    for(int i = 0; i < squad.size(); ++i)
+    for(unsigned i = 0; i < squad.size(); ++i)
     {
         EXPECT_TRUE(squad[i]->transform());
         EXPECT_TRUE(squad[i]->self_destruction());
         EXPECT_TRUE(squad[i]->call_reinforcements());
     }
-    for(int i = 0; i < squad.size(); ++i)
+    for(unsigned i = 0; i < squad.size(); ++i)
     {
         delete squad[i];
     }
