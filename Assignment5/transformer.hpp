@@ -20,7 +20,7 @@ private:
 public:
     Transformer(Gun g, float toughness, bool fire_resistance);
     Transformer();
-    ~Transformer();
+    virtual ~Transformer();
     float get_hp() const;
     unsigned get_lvl() const;
     unsigned get_fuel() const;
