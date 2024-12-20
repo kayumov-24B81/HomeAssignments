@@ -1,53 +1,17 @@
-PROJECT = template
+PROJECT = test-template
 
-TESTPROJECT = test-$(PROJECT)
-
-LIBPROJECT = $(PROJECT).a
-
-OBJECTS = template.o specifications.o
-
-TEST-OBJECTS = test-template.o
-
-DEPS = (wildcard *.h)
-
-A = ar
-
-AFLAGS = rsv
+SRC = test-template.cpp
 
 CXX = g++
 
-CXXFLAGS = -I. -std=c++17 -Werror -Wpedantic -Wall -g -fPIC
+CXXFLAGS = -I. -std=c++17 -Wpedantic -Wall -g -fPIC
+TESTFLAGS = $(CXXFLAGS) -lgtest_main -lgtest -lpthread
 
-LDXXFLAGS = $(CXXFLAGS) -L. -l:$(LIBPROJECT)
-
-LDGTESTFLAGS = $(LDXXFLAGS) -lgtest_main -lgtest -lpthread
-
-.PHONY: default
-
-default: all;
-
-%.o: %.cpp $(DEPS)
-	$(CXX) -c -o $@ $< $(CXXFLAGS)
-	
-$(LIBPROJECT): $(OBJECTS)
-	$(A) $(AFLAGS) $@ $^
-
-$(PROJECT): main.o $(LIBPROJECT)
-	$(CXX) -o $@ main.o $(LDXXFLAGS)
-
-$(TESTPROJECT): $(LIBPROJECT) $(TEST-OBJECTS) 
-	$(CXX) -o $@ $(TEST-OBJECTS) $(LDGTESTFLAGS)
-	
-test: $(TESTPROJECT)
+$(PROJECT): $(SRC)
+	$(CXX) -o $@ $^ $(TESTFLAGS)
 
 all: $(PROJECT)
 
-.PHONY: clean
 
 clean:
-	rm -f *.o
-
-cleanall: clean
 	rm -f $(PROJECT)
-	rm -f $(LIBPROJECT)
-	rm -f $(TESTPROJECT)
