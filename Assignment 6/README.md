@@ -4,12 +4,9 @@
 ## Contacts
 st128100@student.spbu.ru
 ## Description
-Home Assignment 6 - templates. I created class template and made two specifications: for int and double type.
+Home Assignment 6 - templates. I created class template, made two specifications: for int and double type; and created three classes to test this template.
 ## Build
-make - for main function (empty)
-make test - for test function (empty)
-make clean - clear main function files
-make cleanall - clear all files
+make - for test
+make clean - to clear files
 ## Run
-./template - main program (doesn't do anything)
-./test-template - test program (doesn't do anything)
+./test-template - test program
